@@ -1,0 +1,77 @@
+9) Write a Python program to draw 3D Plots using Plotly Libraries.
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+# Generate sample data
+np.random.seed(0)
+X = np.random.rand(50)
+Y = np.random.rand(50)
+Z = np.random.rand(50)
+# Create a 3D plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+# Plot the data as scatter points
+ax.scatter(X, Y, Z, c='r', marker='o')
+# Set the labels for the axes
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+ax.set_zlabel('Z-axis')
+# Display the plot
+plt.show()
+b) Write a Python program for plotting different types of plots using Bokeh.
+from bokeh.io import show, output_notebook
+from bokeh.plotting import figure
+from bokeh.models import ColumnDataSource
+# Scatter plot
+output_notebook()
+scatter = figure(title="Scatter Plot", x_axis_label='X data', y_axis_label='Y data')
+scatter.circle([1, 2, 3, 4, 5], [6, 7, 2, 4, 5], size=20, color="navy", alpha=0.5)
+show(scatter)
+# Line plot
+line = figure(title="Line Plot", x_axis_label='X data', y_axis_label='Y data')
+line.line([1, 2, 3, 4, 5], [5, 6, 7, 8, 9], line_width=2)
+show(line)
+# Bar plot
+bar = figure(title="Bar Plot", x_axis_label='X data', y_axis_label='Y data')
+data = ColumnDataSource(data=dict(x=[1, 2, 3, 4, 5], y=[5, 6, 7, 8, 9]))
+bar.vbar(x='x', top='y', width=0.5, source=data, color="navy")
+show(bar)
+10 (a) Write a Python program to draw Time Series using Plotly Libraries.
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+#Generate random data
+data = np.random.normal(size=365)
+#Convert data into a pandas dataframe with a datetime index
+index = pd.date_range(start='1/1/2022', periods-365, freq='D')
+df = pd.DataFrame(data, index=index, columns=['Value'])
+#Create a figure and axis object
+fig, ax = plt.subplots()
+# Plot the data as a line plot
+ax.plot(df.index, df['Value'])
+# Set the title and labels
+ax.set_title('Time Series Data')
+ax.set_xlabel('Date')
+ax.set_ylabel('Value')
+# Format the x axis as a date axis
+ax.xaxis_date()
+# Show the plot
+plt.show()
+10(b) Write a Python program for creating Maps using Plotly Libraries
+#Define the size of the map
+map_width=20
+map_height=10
+#Create a 2D list to represent the map grid
+map_grid=[['.'for_in range(map_width)] for_in range(map_height)]
+#Define the coordinates of some points of interest
+#For simplicity, let's represent them as (x, y) tuples
+points_of_intrest=[( 4 ,3), (10,5) (16,7)]
+#Place markers for the points of interest on the map grid 
+for point in points_of_interest:
+x,y= point
+if 0<=x<map_width and 0<=y<map_height:
+map_grid[y][x]='X'
+#Print the map
+print("Simple ASCII Map:")
+for row in map_grid:
+print(''.join(row))
