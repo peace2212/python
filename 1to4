@@ -130,4 +130,4 @@ y =[99, 86, 87, 88, 100, 86,
 103, 87, 94, 78, 77, 85, 86]
 plt.scatter(x, y, c ="blue")
 # To show the plot
-plt.show(
+plt.show()
