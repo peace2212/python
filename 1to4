@@ -1,0 +1,133 @@
+1a) Write a python program to find the best of two test average marks out of three test’s 
+marks accepted from the user.
+marks1 = int(input("Enter IA1 marks: "))
+marks2 = int(input("Enter IA2 marks: "))
+marks3 = int(input("Enter IA3 marks: "))
+minimum = min(marks1,marks2,marks3)
+sumof2 = marks1 + marks2 + marks3 - minimum
+avgof2 = sumof2 / 2
+print("Average of best 2 = ", avgof2)
+OUTPUT: 
+Enter IA1 marks: 30
+Enter IA2 marks: 40
+Enter IA3 marks: 30
+Average of best 2 = 35.0
+1b) Develop a Python program to check whether a given number is palindrome or not and
+also count the number of occurrences of each digit in the input number.
+val = int(input("Enter a value : "))
+str_val = str(val)
+if str_val == str_val[::-1]:
+print("Palindrome")
+else:
+print("Not Palindrome")
+for i in range(10):
+if str_val.count(str(i)) > 0:
+print(str(i), "appears", str_val.count(str(i)), "times");
+OUTPUT 1:
+Enter a value : 234
+Not Palindrome
+2 appears 1 times
+3 appears 1 times
+4 appears 1 times
+OUTPUT 2: 
+Enter a value : 121
+Palindrome
+1 appears 2 times
+2 appears 1 times
+2 a) Defined as a function F as Fn = Fn-1 + Fn-2. Write a Python program which accepts a 
+value for N (where N >0) as input and pass this value to the function. Display suitable error 
+message if the condition for input value is not followed.
+def fn(n):
+if n == 1:
+return 0
+elif n == 2:
+return 1
+else:
+return fn(n-1) + fn(n-2)
+num = int(input("Enter a value for n: "))
+if num > 0:
+print("fn(", num, ") = ", fn(num), sep="")
+else:
+print("Error in input")
+OUTPUT: 
+Enter a value for n: 5
+fn(5) = 3
+2 b) Develop a python program to convert binary to decimal, octal to hexadecimal using 
+functions.
+def BinToDec(b):
+return int(b, 2)
+print("Enter the Binary Number: ", end="")
+bnum = input()
+dnum = BinToDec(bnum)
+print("\nEquivalent Decimal Value = ", dnum)
+def OctToHex(o):
+return hex(int(o, 8))
+print("Enter Octal Number: ", end="")
+onum = input()
+hnum = OctToHex(onum)
+print("\nEquivalent Hexadecimal Value =", hnum[2:].upper())
+OUTPUT:
+Enter the Binary Number: 10001
+Equivalent Decimal Value = 17
+Enter Octal Number: 235
+Equivalent Hexadecimal Value = 9D
+3 a) Write a Python program that accepts a sentence and find the number of words, digits, 
+uppercase letters and lowercase letters.
+s = input("Enter a sentence: ")
+w, d, u, l = 0, 0, 0, 0
+l_w = s.split()
+w = len(l_w)
+for c in s:
+if c.isdigit():
+d = d + 1
+elif c.isupper():
+u = u + 1
+elif c.islower():
+l = l + 1
+print ("No of Words: ", w)
+print ("No of Digits: ", d)
+print ("No of Uppercase letters: ", u)
+print ("No of Lowercase letters: ", l)
+OUTPUT: 
+Enter a sentence: I am Sinchana M N 
+No of Words: 5
+No of Digits: 0
+No of Uppercase letters: 4
+No of Lowercase letters: 9
+3 b) Write a Python program to find the string similarity between two given strings
+import difflib
+text1 = "welcome to Information science"
+text2 = "welcome to Information network"
+text3 = "design engineering"
+sequence = difflib.SequenceMatcher(isjunk=None, a=text1,
+b=text2)
+difference = sequence.ratio()*100
+difference = round(difference,1)
+print(str(difference) + "% match")
+OUTPUT: 
+80.0% match
+4 a) Write a Python program to Demonstrate how to Draw a Bar Plot using Matplotlib.
+import numpy as np
+import matplotlib.pyplot as plt
+# creating the dataset
+data = {'C':20, 'C++':15, 'Java':30,
+'Python':35}
+courses = list(data.keys())
+values = list(data.values())
+fig = plt.figure(figsize = (10, 5))
+# creating the bar plot
+plt.bar(courses, values, color ='maroon',
+width = 0.4)
+plt.xlabel("Courses offered")
+plt.ylabel("No. of students enrolled")
+plt.title("Students enrolled in different courses")
+plt.show()
+4 b ) Write a Python program to Demonstrate how to Draw a Scatter Plot using Matplotlib.
+import matplotlib.pyplot as plt
+x =[5, 7, 8, 7, 2, 17, 2, 9,
+4, 11, 12, 9, 6] 
+y =[99, 86, 87, 88, 100, 86, 
+103, 87, 94, 78, 77, 85, 86]
+plt.scatter(x, y, c ="blue")
+# To show the plot
+plt.show(
