@@ -1,0 +1,100 @@
+5 a) Write a Python program to Demonstrate how to Draw a Histogram Plot using 
+Matplotlib.
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.random.normal(140, 10, 250)
+plt.hist(x)
+plt.show() 
+5 b) Write a Python program to Demonstrate how to Draw a Pie Chart using Matplotlib.
+# Import libraries
+from matplotlib import pyplot as plt
+import numpy as np
+# Creating dataset
+cars = ['ISE', 'CSE', 'ME',
+'EEE', 'EC', 'CIVIL']
+data = [23, 17, 35, 29, 12, 41]
+# Creating plot
+fig = plt.figure(figsize =(10, 7))
+plt.pie(data, labels = cars)
+# show plot
+plt.show()
+6 a) Write a Python program to illustrate Linear Plotting using Matplotlib.
+# importing the required libraries
+import matplotlib.pyplot as plt
+import numpy as np
+# define data values
+x = np.array([1, 2, 3, 4]) # X-axis points
+y = x*2 # Y-axis points
+plt.plot(x, y) # Plot the chart
+plt.show() # display
+6 b) write a python program to illustrate linear plotting with line formatting using Matplotlib.
+from matplotlib import pyplot as plt
+plt.xkcd()
+ages_x = [18, 19, 20, 21, 22, 23, 24, 25, 26, 30]
+py_dev_y = [20046, 17100, 20000, 24744, 30500, 37732, 41247, 45372, 48876, 
+53850]
+plt.plot(ages_x, py_dev_y, label='Python')
+js_dev_y = [16446, 16791, 18942, 21780, 25704, 29000, 34372, 37810, 43515, 
+46823]
+plt.plot(ages_x, js_dev_y, label='JavaScript')
+dev_y = [17784, 16500, 18012, 20628, 25206, 30252, 34368, 38496, 42000, 
+46752]
+plt.plot(ages_x, dev_y, color='#444444', linestyle='--', label='All Devs')
+plt.xlabel('Ages')
+plt.ylabel('Median Salary (USD)')
+plt.title('Median Salary (USD) by Age')
+plt.legend()
+plt.tight_layout()
+plt.savefig('plot.png')
+plt.show()
+7) Write a Python program which explains uses of customizing seaborn plots with Aesthetic 
+functions.
+from sklearn.datasets import load_iris
+import pandas as pd
+import numpy as np
+iris = load_iris()
+iris_df = pd.DataFrame(data= np.c_[iris['data'], iris['target']],
+ columns= iris['feature_names'] + ['target'])
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x="sepal length (cm)", y="sepal width (cm)", hue="target", data=iris_df, 
+palette="bright")
+plt.title("Scatterplot of Iris Dataset")
+plt.show()
+sns.set(style="darkgrid")
+7 b) 
+sns.violinplot(x="target", y="sepal length (cm)", data=iris_df)
+plt.title("Violin plot of Sepal Length")
+plt.show()
+8 (a) Write a Python program to explain working with bokeh line graph using Annotations 
+and Legends.
+# importing the modules 
+from bokeh.plotting import figure, output_file, show 
+# file to save the model 
+output_file("gfg.html") 
+# instantiating the figure object 
+graph = figure(title = "Bokeh Line Graph") 
+# the points to be plotted 
+x = [1, 2, 3, 4, 5] 
+y = [1, 6, 8, 2, 3] 
+# plotting the line graph 
+graph.line(x, y) 
+# displaying the model 
+show(graph)
+8 b) Write a Python program for plotting different types of plots using Bokeh.
+from bokeh.io import show, output_notebook
+from bokeh.plotting import figure
+from bokeh.models import ColumnDataSource
+# Scatter plot
+output_notebook()
+scatter = figure(title="Scatter Plot", x_axis_label='X data', y_axis_label='Y data')
+scatter.circle([1, 2, 3, 4, 5], [6, 7, 2, 4, 5], size=20, color="navy", alpha=0.5)
+show(scatter)
+# Line plot
+line = figure(title="Line Plot", x_axis_label='X data', y_axis_label='Y data')
+line.line([1, 2, 3, 4, 5], [5, 6, 7, 8, 9], line_width=2)
+show(line)
+# Bar plot
+bar = figure(title="Bar Plot", x_axis_label='X data', y_axis_label='Y data')
+data = ColumnDataSource(data=dict(x=[1, 2, 3, 4, 5], y=[5, 6, 7, 8, 9]))
+bar.vbar(x='x', top='y', width=0.5, source=data, color="navy")
+show(bar)
